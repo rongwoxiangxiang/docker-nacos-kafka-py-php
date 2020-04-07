@@ -1,0 +1,34 @@
+version: "2"
+services:
+  nginx:
+    image: registry.cn-qingdao.aliyuncs.com/chs/chlw:nginx
+    ports:
+     - "8888:8888"
+     - "80:80"
+    external_links:
+      - php
+    volumes:
+      - ./local/nginx/my.conf/my.conf:/etc/nginx/conf.d/my.conf
+    volumes_from:
+      - php
+  php:
+    image: php:5.6-fpm
+    ports:
+      - "9000:9000"
+      - "9501:9501"
+    volumes:
+      - ~/lcm/old/lcm_admintool/:/var/www/html/lcm_admintool
+    stdin_open: true
+    tty: true
+    container_name: php
+  # mysql:
+  #   image: mysql
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   restart: always
+  #   volumes:
+  #     #- ./local/mysql/conf/my.cnf:/etc/mysql/my.cnf
+  #     - ./local/mysql/data:/var/lib/mysql
+  #   ports:
+  #     - "3316:3316"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 1qaz2wsx

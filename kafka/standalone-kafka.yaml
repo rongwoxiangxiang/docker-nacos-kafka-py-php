@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  zoo:
+    image: wurstmeister/zookeeper
+    restart: unless-stopped
+    hostname: zoo
+    ports:
+      - "2181:2181"
+    container_name: zookeeper
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: "kubernetes.docker.internal"
+      KAFKA_ZOOKEEPER_CONNECT: "zoo:2181"
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_CREATE_TOPICS: "stream_in:1:1,stream_out:1:1"
+    depends_on:
+      - zoo
+    container_name: kafka

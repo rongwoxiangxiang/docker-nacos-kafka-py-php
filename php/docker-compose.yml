@@ -1,0 +1,23 @@
+version: "2"
+services:
+  nginx:
+    image: registry.cn-qingdao.aliyuncs.com/chs/chlw:nginx
+    ports:
+  #     - "80:80"
+      - "8111:8111"
+  #  external_links:
+  #    - php
+  #     - redis
+    volumes:
+      - ./local/nginx/my.conf/my.conf:/etc/nginx/conf.d/my.conf
+  #     - ./project:/var/www/
+  php:
+    image: easyswoole/easyswoole3
+    ports:
+      - "9000:9000"
+      - "9501:9501"
+    volumes:
+      - ./project:/var/www/code
+    stdin_open: true
+    tty: true
+    container_name: php
