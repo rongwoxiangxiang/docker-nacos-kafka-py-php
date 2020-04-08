@@ -21,8 +21,14 @@
 ./start.sh kafka
 
 ### python
-python为python2.7 仅在基础镜像之上安装了mysql-python
+#### python3:
+./start.sh python
+#### python2.7:
+./start.sh python27
 
-没有加入启动脚本，手动启动：
-1. *docker run -it registry.cn-hangzhou.aliyuncs.com/chs/python2.7:mysql-python bash*
-2. *docker-compose -f path/docker-compose-py-2.7.yml up -d*ty
+### redis
+python为python2.7 仅在基础镜像之上安装了mysql-python
+./start.sh redis
+
+**关闭服务**
+./start.sh [nacos|python|python27|kafka|redis|php|php56] stop

@@ -11,6 +11,10 @@ if [ x"$1" == x"nacos" ];then
   docker_ymal_file="nacos/example/standalone-mysql-5.7.yaml"
 elif [ x"$1" == x"kafka" -o x"$1" == x"kfk" ];then
   docker_ymal_file="kafka/standalone-kafka.yaml"
+elif [ x"$1" == x"redis" ];then
+  docker_ymal_file="redis/docker-compose.yml"
+elif [ x"$1" == x"python27" ];then
+  docker_ymal_file="python/docker-compose-py-2.7.yml"
 elif [ x"$1" == x"php" ];then
   docker_ymal_file="php/docker-compose.yml"
 elif [ x"$1" == x"php56" ];then
