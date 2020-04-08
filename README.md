@@ -24,3 +24,5 @@ python为python2.7 仅在基础镜像之上安装了mysql-python
 
 **关闭服务**
 ./start.sh [nacos|python|python27|kafka|redis|php|php56] stop
+**重启服务**
+./start.sh [nacos|python|python27|kafka|redis|php|php56] restart

@@ -1,6 +1,6 @@
 version: "2"
 services:
   python:
-    image: registry.cn-hangzhou.aliyuncs.com/chs/python2.7:mysql-python
+    image: python
 #    volumes:
 #      - ./project:/data/python 

@@ -2,6 +2,8 @@
 
 if [ ! -d "nacos" ];then
   mkdir ./nacos
+  git clone https://github.com/nacos-group/nacos-docker.git ./nacos 
+elif [ ! -f "nacos/example/standalone-mysql-5.7.yaml" ];then
   git clone https://github.com/nacos-group/nacos-docker.git ./nacos
 fi
 
