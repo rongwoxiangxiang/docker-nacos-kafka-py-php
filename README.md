@@ -13,13 +13,13 @@
 ./start.sh kafka
 
 ### python
+**python为python2.7 仅在基础镜像之上安装了mysql-python**
 #### python3:
 ./start.sh python
 #### python2.7:
 ./start.sh python27
 
 ### redis
-python为python2.7 仅在基础镜像之上安装了mysql-python
 ./start.sh redis
 
 **关闭服务**
