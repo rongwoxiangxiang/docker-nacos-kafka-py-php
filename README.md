@@ -9,14 +9,6 @@
 
 使用derby需要修改start.sh将 standalone-mysql-5.7.yaml 修改为 standalone-derby.yaml
 
-
-### php
-**Php 服务默认包含nginx**
-#### [php(with swoole)](https://www.easyswoole.com/):
-./start.sh php
-#### php56:
-./start.sh php56
-
 ### [kafka](https://hub.docker.com/r/wurstmeister/zookeeper)
 ./start.sh kafka
 
