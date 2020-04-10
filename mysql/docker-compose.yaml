@@ -1,0 +1,11 @@
+version: "2"
+services:
+  mysql:
+    container_name: mysql
+    image: nacos/nacos-mysql:5.7
+    env_file:
+      - ../nacos/env/mysql.env
+    volumes:
+      - ../nacos/example/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"

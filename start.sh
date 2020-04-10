@@ -8,11 +8,23 @@ elif [ ! -f "nacos/example/standalone-mysql-5.7.yaml" ];then
 fi
 
 declare -a services
+echo "start stopping all docker services"
+if [ x"$1" == x"stop" ];then
+  services=`docker ps | awk 'NR <= 2 {next} {print $1}'`
+  if [ ${#services} != 0 ];then
+    docker ps -qa | xargs docker rm -f
+  fi
+  echo "stopped all docker services "
+  exit 0
+fi
+
 
 if [ x"$1" == x"nacos" ];then
   docker_ymal_file="nacos/example/standalone-mysql-5.7.yaml"
 elif [ x"$1" == x"kafka" -o x"$1" == x"kfk" ];then
   docker_ymal_file="kafka/standalone-kafka.yaml"
+elif [ x"$1" == x"mysql" ];then
+  docker_ymal_file="mysql/docker-compose.yaml"
 elif [ x"$1" == x"redis" ];then
   docker_ymal_file="redis/docker-compose.yml"
 elif [ x"$1" == x"python27" ];then

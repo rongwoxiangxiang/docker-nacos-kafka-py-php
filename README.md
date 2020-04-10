@@ -22,8 +22,13 @@
 ### redis
 ./start.sh redis
 
+### mysql
+**默认启动nacos对应那个myslq服务**
+./start.sh mysql
+
 **关闭服务**
 ./start.sh [nacos|python|python27|kafka|redis|php|php56] stop
+./start.sh stop (关闭全部服务)
 
 **重启服务**
 ./start.sh [nacos|python|python27|kafka|redis|php|php56] restart
